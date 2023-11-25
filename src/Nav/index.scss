@@ -1,42 +1,129 @@
 
+nav {
+    display: grid;
+    grid-column: 100%;
+}
+
+.nav-bars {
+    display: none;
+    align-self: left;
+    margin-left: 2rem;
+}
 
 .logo{
     width: 10rem;
     height: 4rem;
 }
 
-nav {
+
+.nav-cart{
+    margin-left: auto;
+    margin-right: 2rem;
+    display: none;
+}
+
+.desktop{
     margin-top: 1rem;
     display: flex;
     align-items: center;
     justify-content: center;
 
-}
-
-
-nav ul{
-    list-style: none;
-    text-align: center;
-}
-
-nav li {
-    display: inline-block;
-    margin-right: 1rem;
-    font-size: 1.5rem;
-    font-weight: bold;
-}
-
-li a{
-    color: black;
-    text-decoration: none;
-
-    &:active{
-        color: inherit;
+    ul{
+        list-style: none;
+        text-align: center;
     }
+    li {
+        display: inline-block;
+        margin-right: 1rem;
+        font-size: 1.5rem;
+        font-weight: bold;
+    }
+
+    li a{
+        color: black;
+        text-decoration: none;
+
+        &:active{
+            color: inherit;
+        }
+    }
+
 }
+
+.mobile{
+    display: none;
+}
+
+.show-menu{
+    display: initial;
+}
+
+.hide-menu{
+    display: none;
+}
+
+.test{
+    display: none;
+}
+
+.show-times{
+    transition: .5s;
+    rotate: 180deg;
+}
+
+.show-bars{
+    transition: .5s;
+    rotate: -180deg;
+}
+
 
 @media (max-width:1024px) {
-    ul{
-        display: none;
+
+    .nav-bars{
+        display: initial;
+        margin-left: .5rem;
+    }
+    .logo{
+        width: 12rem;
+        height: 6rem;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    .nav-cart{
+        display: initial;
+        margin-right: .5rem;
+    }
+
+    .desktop{
+        display: grid;
+        grid-template-columns: 1fr 3fr 1fr;
+
+        ul{
+            display: none;
+        }
+    }
+
+    .mobile{
+        display: initial;
+        ul{
+            list-style: none;
+            text-align: center;
+        }
+        li {
+            display: block;
+            margin-bottom: .5rem;
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+
+        li a{
+            color: black;
+            text-decoration: none;
+
+            &:active{
+                color: inherit;
+            }
+        }
     }
 }
+
