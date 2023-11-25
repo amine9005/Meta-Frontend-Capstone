@@ -7,13 +7,13 @@ import {
   faTimes,
   faShoppingCart,
 } from "@fortawesome/free-solid-svg-icons";
-import Link from "./Links";
+import { Link } from "react-router-dom";
 
 const links = [
-  { name: "Home", url: "#Home" },
+  { name: "Home", url: "/" },
   { name: "About", url: "#About" },
   { name: "Menu", url: "#Menu" },
-  { name: "Reservation", url: "#Reservation" },
+  { name: "Reservation", url: "booking" },
   { name: "Order Online", url: "#OrderOnline" },
   { name: "Login", url: "#Login" },
 ];
@@ -30,14 +30,26 @@ const Nav = () => {
           icon={showMenu ? faTimes : faBars}
           onClick={() => setShowMenu(!showMenu)}
         />
-        <img className="logo" src={Logo} alt="logo.svg" />
-        <Link links={links} />
+        <Link className="logo" to="/">
+          <img className="logo" src={Logo} alt="logo.svg" />
+        </Link>
+        <ul>
+          {links.map((link) => (
+            <li key={link.url}>
+              <Link to={link.url}>{link.name}</Link>
+            </li>
+          ))}
+        </ul>
         <FontAwesomeIcon className="nav-cart" icon={faShoppingCart} size="4x" />
       </div>
       <div className="mobile">
-        <div className={showMenu ? "show-menu" : "hide-menu"}>
-          <Link links={links} />
-        </div>
+        <ul className={showMenu ? "show-menu" : "hide-menu"}>
+          {links.map((link) => (
+            <li key={link.url}>
+              <Link to={link.url}>{link.name}</Link>
+            </li>
+          ))}
+        </ul>
       </div>
     </nav>
   );

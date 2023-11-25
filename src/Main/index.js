@@ -1,9 +1,15 @@
-import React from 'react'
+import React from "react";
+import HomePage from "../HomePage";
+import BookingPage from "../BookingPage";
+import { Route, Routes } from "react-router-dom";
 
 const Main = () => {
   return (
-    <div>Main</div>
-  )
-}
+    <Routes>
+      <Route path="/" element={<HomePage />} />
+      <Route path="/booking" element={<BookingPage />} />
+    </Routes>
+  );
+};
 
-export default Main
+export default Main;
