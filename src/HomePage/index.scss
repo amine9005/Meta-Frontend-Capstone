@@ -64,3 +64,34 @@ $secondary-white:#EDEFEE;
     height: 450px;
     border-radius: 2rem;
 }
+
+
+@media (max-width:1024px) {
+    .container-hero-section{
+        display: flex;
+        flex-direction: column;
+        position: absolute;
+        padding-top: 1rem;
+        justify-content: center;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .container-text{
+        width: initial;
+        padding-bottom: 1rem;
+        padding-left: .3rem;
+        padding-right: .3rem;
+        p{
+            width: 100%;
+        }
+    }
+
+    .main-img{
+        width: 90%;
+        height: 450px;
+        border-radius: 2rem;
+        margin-left: auto;
+        margin-right: auto;
+    }
+}
