@@ -1,0 +1,153 @@
+
+$primary-yellow:#F4CE14;
+$primary-grey:#495E57;
+$secondary-black:#333333;
+$secondary-white:#EDEFEE;
+$secondary-red:#EE9972;
+
+.container-specials{
+    display: block;
+    margin-top: 4rem;
+    margin-left: auto;
+    margin-right: auto;
+    width: 90%;
+}
+
+.double-centered{
+    display: flex;
+    justify-content: space-between;
+    width: 95%;
+    align-self: center;
+}
+
+h1{
+    font-size: 3rem;
+}
+
+.specials{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+
+    img{
+        width: 24rem;
+        height: 16rem;
+        border-radius: 2rem 2rem 0 0;
+        border: 1px solid $primary-grey;
+    }
+
+    .card{
+        border: 1px solid $primary-grey;
+        background-color: $secondary-white;
+        border-radius: 2rem 2rem 0 0;
+        width: 24rem;
+        padding-bottom: .5rem;
+
+        .content{
+            padding: 1rem;
+        }
+
+        h4{
+            font-size: 1.5rem;
+        }
+        .price{
+            color: $secondary-red;
+        }
+        p{
+            overflow: hidden;
+        }
+
+        .link-btn{
+            text-decoration: none;
+            color: $secondary-black;
+            &:hover{
+                cursor: pointer;
+            }
+            &:active{
+                color: inherit;
+            }
+        }
+    }
+}
+
+
+.menu-btn{
+    width: 12rem;
+    height: 3em;
+    color: $secondary-black;
+    background-color: $primary-yellow;
+    border: none;
+    border-radius: .5rem;
+    font-size: 1.2rem;
+    margin-top: 1.5rem;
+
+    &:hover{
+        cursor: pointer;
+    }
+    &:active{
+        background-color: #EDEFEE;
+    }
+}
+@media (max-width: 1280px) {
+    .specials{
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 2rem;
+    }
+}
+
+@media (max-width: 1024px) {
+    .specials{
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 2rem;
+    }
+    .container-specials{
+        margin-top: 0;
+    }
+}
+
+@media (max-width: 890px) {
+    .specials{
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 2rem;
+        width: 100%;
+
+        .card{
+            width: 100%;
+        }
+
+        img{
+            width: 100%;
+            height: 30rem;
+
+        }
+    }
+    .container-specials{
+        margin-top: 0;
+
+    }
+}
+
+@media (max-width: 600px) {
+    .specials{
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 2rem;
+        width: 100%;
+
+        .card{
+            width: 100%;
+        }
+
+        img{
+            width: 100%;
+            height: 24rem;
+
+        }
+    }
+    .container-specials{
+        margin-top: 0;
+
+    }
+}
