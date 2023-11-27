@@ -11,10 +11,12 @@ const BookingForm = (props) => {
   const updateDate = (e) => {
     setResDate(e.target.value);
     props.dispatch({ type: e.target.value });
+    console.log("New State", props.availableTimes);
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    props.submitForm(e);
   };
 
   return (
@@ -38,14 +40,16 @@ const BookingForm = (props) => {
             <select
               id="res-time "
               value={resTime}
-              onChange={(e) => setResTime((e) => setResTime(e.target.value))}
+              onChange={(e) => setResTime(e.target.value)}
               required
             >
-              {props.availableTimes.map((avTime) => (
-                <option value={avTime.value} key={avTime.value}>
-                  {avTime.name}
-                </option>
-              ))}
+              {props.availableTimes.map
+                ? props.availableTimes.map((avTime) => (
+                    <option value={avTime.value} key={avTime.value}>
+                      {avTime.value}
+                    </option>
+                  ))
+                : console.log("props: ", props.availableTimes)}
             </select>
           </div>
 

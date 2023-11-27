@@ -1,20 +1,29 @@
-import { render, screen } from "@testing-library/react";
-import "@testing-library/jest-dom";
-import App from "../App";
-import { MemoryRouter } from "react-router-dom";
-const initializeTimes = [
-  { value: "17:00", name: "17:00" },
-  { value: "18:00", name: "18:00" },
-  { value: "19:00", name: "19:00" },
-  { value: "20:00", name: "20:00" },
-  { value: "21:00", name: "21:00" },
-  { value: "22:00", name: "22:00" },
-];
+import { fireEvent, render, screen } from "@testing-library/react";
+import { BrowserRouter } from "react-router-dom";
+import App from "./App";
 
-test("Initialize Times", () => {
+test("Renders the Header heading", () => {
   render(
-    <MemoryRouter>
+    <BrowserRouter>
       <App />
-    </MemoryRouter>
+    </BrowserRouter>
   );
+  const headingElement = screen.getByText("Reserve Table");
+  expect(headingElement).toBeInTheDocument();
+
+  const reserveButton = screen.getByRole("button");
+  fireEvent.click(reserveButton);
+
+  const headingElementNew = screen.getByText("Choose Date");
+  expect(headingElementNew).toBeInTheDocument();
+});
+
+test("Initialize/Update Times", () => {
+  render(
+    <BrowserRouter>
+      <App />
+    </BrowserRouter>
+  );
+  const reserveButton = screen.getByRole("button");
+  fireEvent.click(reserveButton);
 });
